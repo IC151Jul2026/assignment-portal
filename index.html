@@ -22,6 +22,9 @@
             <option value="">Select an assignment</option>
           </select>
           <p id="assignment-help" class="field-help">Choose the assignment named in your course announcement.</p>
+          <label for="batch">Lab batch</label>
+          <select id="batch" name="batch" required><option value="">Select your batch</option><option value="A1">A1</option><option value="A2">A2</option><option value="A3">A3</option><option value="A4">A4</option><option value="B1">B1</option><option value="B2">B2</option><option value="B3">B3</option><option value="B4">B4</option></select>
+          <p id="batch-help" class="field-help">The lab batch you attend. Ask your TA if you are unsure.</p>
           <label for="roll">Roll number</label>
           <input id="roll" name="roll" type="text" inputmode="text" autocomplete="off" spellcheck="false" placeholder="For example, 260000000" required aria-describedby="roll-help form-status">
           <p id="roll-help" class="field-help">Enter the roll number exactly as issued. Surrounding spaces are ignored.</p>
@@ -59,7 +62,7 @@
       </section>
       <footer><span>Organization: <strong>IC151Jul2026</strong></span><span>No roster data is stored by this page.</span></footer>
     </main>
-    <script>window.PORTAL_CONFIG = {organization: "IC151Jul2026", courseName: "IC151", assignments: [{"id":"helloworld","title":"Hello World"}]};</script>
+    <script>window.PORTAL_CONFIG = {organization: "IC151Jul2026", courseName: "IC151", assignments: [{"id":"helloworld","title":"Hello World"}], repositoryPattern: "{assignment}-{batch}-{roll}", batches: ["A1","A2","A3","A4","B1","B2","B3","B4"]};</script>
     <script src="app.js" defer></script>
   </body>
 </html>

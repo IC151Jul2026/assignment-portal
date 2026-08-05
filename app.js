@@ -8,11 +8,18 @@
   const assignments = Array.isArray(config.assignments) ? config.assignments : [];
   const assignmentPattern = /^[a-z0-9][a-z0-9._-]*$/;
   const rollPattern = /^[A-Za-z0-9._-]+$/;
+  // Comes from course.repository_pattern so this always matches what the release
+  // script actually created. Never hardcode the repository name shape here.
+  const repositoryPattern = typeof config.repositoryPattern === "string" && config.repositoryPattern
+    ? config.repositoryPattern
+    : "{assignment}-{roll}";
+  const needsBatch = repositoryPattern.includes("{batch}");
 
   const form = document.getElementById("repository-form");
   const assignmentSelect = document.getElementById("assignment");
   const assignmentHelp = document.getElementById("assignment-help");
   const rollInput = document.getElementById("roll");
+  const batchSelect = document.getElementById("batch");
   const formStatus = document.getElementById("form-status");
   const confirmation = document.getElementById("confirmation");
   const confirmationCopy = document.getElementById("confirmation-copy");
@@ -33,8 +40,12 @@
     return rollPattern.test(value) && value.length <= 128;
   }
 
-  function repositoryUrl(assignment, roll) {
-    return `https://github.com/${organization}/${assignment}-${roll}`;
+  function repositoryUrl(assignment, roll, batch) {
+    const name = repositoryPattern
+      .replace(/\{assignment\}/g, assignment)
+      .replace(/\{batch\}/g, batch)
+      .replace(/\{roll\}/g, roll);
+    return `https://github.com/${organization}/${name}`;
   }
 
   function addAssignments() {
@@ -83,10 +94,16 @@
 
     const assignment = assignmentSelect.value;
     const roll = rollInput.value.trim();
+    const batch = batchSelect ? batchSelect.value : "";
 
     if (!assignment || !validAssignment(assignment)) {
       setStatus("Select a valid assignment.", "error");
       assignmentSelect.focus();
+      return;
+    }
+    if (needsBatch && !batch) {
+      setStatus("Select your lab batch.", "error");
+      if (batchSelect) batchSelect.focus();
       return;
     }
     if (!roll) {
@@ -100,7 +117,7 @@
       return;
     }
 
-    showConfirmation(repositoryUrl(assignment, roll), assignment, roll);
+    showConfirmation(repositoryUrl(assignment, roll, batch), assignment, roll);
   });
 
   backButton.addEventListener("click", showForm);
