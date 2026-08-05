@@ -40,7 +40,7 @@
         <div class="notice"><strong>Sign in with your registered GitHub account.</strong><span>If you have not accepted your repository invitation yet, GitHub may show a 404 until you do.</span></div>
         <div class="button-row"><button id="back-button" type="button" class="secondary-button">Back</button><a id="continue-link" class="primary-button button-link" href="#" target="_blank" rel="noopener noreferrer">Continue to GitHub</a></div>
       </section>
-      <section class="instructions" aria-labelledby="instructions-title">
+      <section class="card instructions" aria-labelledby="instructions-title">
         <h2 id="instructions-title">Before you begin</h2>
         <ul>
           <li>Sign in to GitHub with the account whose username you submitted on the registration form.</li>
@@ -49,7 +49,7 @@
           <li>The portal only constructs a link. GitHub permissions protect the private repository.</li>
         </ul>
       </section>
-      <section class="instructions" aria-labelledby="trouble-title">
+      <section class="card instructions" aria-labelledby="trouble-title">
         <h2 id="trouble-title">Seeing a 404?</h2>
         <p>GitHub shows the same 404 whether the repository is missing or you simply cannot see it, so work through these in order.</p>
         <ul>
@@ -60,7 +60,7 @@
           <li>Still stuck? Contact your lab TA with your roll number and your GitHub username.</li>
         </ul>
       </section>
-      <section class="instructions" aria-labelledby="howto-title">
+      <section class="card instructions" aria-labelledby="howto-title">
         <h2 id="howto-title">How to do the assignment</h2>
         <p>Red boxes show where to click. There are two ways to submit &mdash; pick either one.</p>
 
@@ -71,7 +71,7 @@
             <image href="assets/edit-pencil.jpg" x="0" y="0" width="1504" height="755"></image>
             <rect fill="none" stroke="#e5484d" stroke-width="4" rx="6" x="1052" y="235" width="32" height="28"></rect>
           </svg>
-          <figcaption><strong>A1.</strong> Open <code>main.cpp</code> and click the pencil.</figcaption>
+          <figcaption><strong class="step">A1</strong> Open <code>main.cpp</code> and click the pencil.</figcaption>
         </figure>
         <figure class="shot">
           <svg viewBox="336 108 1166 224" role="img" aria-label="The GitHub editor with the placeholder text and the Commit changes button highlighted">
@@ -79,7 +79,7 @@
             <rect fill="none" stroke="#e5484d" stroke-width="4" rx="6" x="524" y="280" width="258" height="21"></rect>
             <rect fill="none" stroke="#e5484d" stroke-width="4" rx="6" x="1337" y="117" width="152" height="31"></rect>
           </svg>
-          <figcaption><strong>A2.</strong> Replace <code>REPLACE_WITH_YOUR_ROLL_NUMBER</code> with your roll number, then press <strong>Commit changes</strong>. Keep the branch as <code>main</code>.</figcaption>
+          <figcaption><strong class="step">A2</strong> Replace <code>REPLACE_WITH_YOUR_ROLL_NUMBER</code> with your roll number, then press <strong>Commit changes</strong>. Keep the branch as <code>main</code>.</figcaption>
         </figure>
 
         <h3>Option B &mdash; download, check on your machine, upload back</h3>
@@ -89,11 +89,11 @@
             <rect fill="none" stroke="#e5484d" stroke-width="4" rx="6" x="947" y="193" width="94" height="33"></rect>
             <rect fill="none" stroke="#e5484d" stroke-width="4" rx="6" x="660" y="516" width="190" height="31"></rect>
           </svg>
-          <figcaption><strong>B1.</strong> Click <strong>Code</strong>, then <strong>Download ZIP</strong>. Unzip it and keep the folder name exactly as it is.</figcaption>
+          <figcaption><strong class="step">B1</strong> Click <strong>Code</strong>, then <strong>Download ZIP</strong>. Unzip it and keep the folder name exactly as it is.</figcaption>
         </figure>
-        <p><strong>B2.</strong> Edit <code>main.cpp</code> in any editor, then open a terminal and check that your code actually runs <em>before</em> you submit it:</p>
+        <p><strong class="step">B2</strong> Edit <code>main.cpp</code> in any editor, then open a terminal and check that your code actually runs <em>before</em> you submit it:</p>
         <div class="terminal">
-          <div class="terminal-bar" aria-hidden="true"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="terminal-title">Terminal</span></div>
+          <div class="terminal-bar" aria-hidden="true"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="terminal-title">Terminal</span><button type="button" class="copy-btn" data-copy>Copy</button></div>
           <pre><code><span class="c"># go into the folder you unzipped</span>
 <span class="c"># (tip: type "cd " then drag the folder onto the terminal window)</span>
 <span class="p">$ </span>cd ~/Downloads/helloworld-B3-260000000-main
@@ -117,7 +117,7 @@
             <rect fill="none" stroke="#e5484d" stroke-width="4" rx="6" x="836" y="193" width="94" height="33"></rect>
             <rect fill="none" stroke="#e5484d" stroke-width="4" rx="6" x="846" y="270" width="180" height="27"></rect>
           </svg>
-          <figcaption><strong>B3.</strong> Back on your repository page, choose <strong>Add file &rarr; Upload files</strong>.</figcaption>
+          <figcaption><strong class="step">B3</strong> Back on your repository page, choose <strong>Add file &rarr; Upload files</strong>.</figcaption>
         </figure>
         <figure class="shot">
           <svg viewBox="140 20 1232 632" role="img" aria-label="The upload page with the file chooser and the Commit changes button highlighted">
@@ -125,7 +125,7 @@
             <rect fill="none" stroke="#e5484d" stroke-width="4" rx="6" x="698" y="192" width="134" height="27"></rect>
             <rect fill="none" stroke="#e5484d" stroke-width="4" rx="6" x="207" y="608" width="147" height="33"></rect>
           </svg>
-          <figcaption><strong>B4.</strong> Drag in your edited <code>main.cpp</code> (or use <strong>choose your files</strong>), leave <em>Commit directly to the <code>main</code> branch</em> selected, and press <strong>Commit changes</strong>.</figcaption>
+          <figcaption><strong class="step">B4</strong> Drag in your edited <code>main.cpp</code> (or use <strong>choose your files</strong>), leave <em>Commit directly to the <code>main</code> branch</em> selected, and press <strong>Commit changes</strong>.</figcaption>
         </figure>
 
         <div class="notice">
