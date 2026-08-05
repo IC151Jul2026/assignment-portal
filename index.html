@@ -91,11 +91,21 @@
           </svg>
           <figcaption><strong>B1.</strong> Click <strong>Code</strong>, then <strong>Download ZIP</strong>. Unzip it and keep the folder name exactly as it is.</figcaption>
         </figure>
-        <p><strong>B2.</strong> Edit <code>main.cpp</code> in any editor, then open a terminal in that folder and run the check:</p>
-        <pre><code>cd helloworld-B3-260000000-main
+        <p><strong>B2.</strong> Edit <code>main.cpp</code> in any editor, then open a terminal and check that your code actually runs <em>before</em> you submit it:</p>
+        <pre><code># 1. go into the folder you unzipped
+#    (tip: type "cd " then drag the folder onto the terminal window)
+cd ~/Downloads/helloworld-B3-260000000-main
+
+# 2. compile it and run it yourself
+g++ -std=c++17 -Wall -Wextra -pedantic main.cpp -o main
+./main
+
+# 3. run the official check
 chmod +x check.sh
 ./check.sh</code></pre>
-        <p class="field-help">Unzipping removes the executable bit, so the <code>chmod</code> line is needed once. A pass looks like <code>PASS: output contains roll number ...</code>. The check reads your roll number from the folder name, so do not rename the folder.</p>
+        <p>Step 2 should print your roll number. Step 3 should end with a line like:</p>
+        <pre><code>PASS: output contains roll number 260000000</code></pre>
+        <p class="field-help">If you get <code>FAIL: ...</code> instead, fix <code>main.cpp</code> and run <code>./check.sh</code> again. The <code>chmod</code> line is needed once because unzipping removes the executable bit. The check reads your roll number from the folder name, so do not rename the folder. If <code>g++</code> is not found, install the compiler for your system first.</p>
         <figure class="shot">
           <svg viewBox="820 180 244 132" role="img" aria-label="The Add file menu with Upload files highlighted">
             <image href="assets/upload-files.jpg" x="0" y="0" width="1504" height="756"></image>
