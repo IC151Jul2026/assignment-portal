@@ -92,19 +92,24 @@
           <figcaption><strong>B1.</strong> Click <strong>Code</strong>, then <strong>Download ZIP</strong>. Unzip it and keep the folder name exactly as it is.</figcaption>
         </figure>
         <p><strong>B2.</strong> Edit <code>main.cpp</code> in any editor, then open a terminal and check that your code actually runs <em>before</em> you submit it:</p>
-        <pre><code># 1. go into the folder you unzipped
-#    (tip: type "cd " then drag the folder onto the terminal window)
-cd ~/Downloads/helloworld-B3-260000000-main
+        <div class="terminal">
+          <div class="terminal-bar" aria-hidden="true"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="terminal-title">Terminal</span></div>
+          <pre><code><span class="c"># go into the folder you unzipped</span>
+<span class="c"># (tip: type "cd " then drag the folder onto the terminal window)</span>
+<span class="p">$ </span>cd ~/Downloads/helloworld-B3-260000000-main
 
-# 2. compile it and run it yourself
-g++ -std=c++17 -Wall -Wextra -pedantic main.cpp -o main
-./main
+<span class="c"># compile it and run it yourself</span>
+<span class="p">$ </span>g++ -std=c++17 -Wall -Wextra -pedantic main.cpp -o main
+<span class="p">$ </span>./main
+<span class="o">260000000</span>
 
-# 3. run the official check
-chmod +x check.sh
-./check.sh</code></pre>
-        <p>Step 2 should print your roll number. Step 3 should end with a line like:</p>
-        <pre><code>PASS: output contains roll number 260000000</code></pre>
+<span class="c"># run the official check</span>
+<span class="p">$ </span>chmod +x check.sh
+<span class="p">$ </span>./check.sh
+<span class="o">260000000</span>
+<span class="ok">PASS: output contains roll number 260000000</span></code></pre>
+        </div>
+        <p class="field-help">The <code>$</code> is the prompt, not part of the command &mdash; selecting and copying the block leaves it out.</p>
         <p class="field-help">If you get <code>FAIL: ...</code> instead, fix <code>main.cpp</code> and run <code>./check.sh</code> again. The <code>chmod</code> line is needed once because unzipping removes the executable bit. The check reads your roll number from the folder name, so do not rename the folder. If <code>g++</code> is not found, install the compiler for your system first.</p>
         <figure class="shot">
           <svg viewBox="820 180 244 132" role="img" aria-label="The Add file menu with Upload files highlighted">

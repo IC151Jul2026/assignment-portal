@@ -270,3 +270,71 @@ footer {
   .shot svg { border-color: rgba(148, 163, 184, 0.35); }
   .instructions pre { background: rgba(148, 163, 184, 0.14); }
 }
+
+/* Terminal window. Deliberately dark in both colour schemes -- a terminal that
+   turns white in light mode stops reading as a terminal. */
+.terminal {
+  margin: 1.1rem 0 1rem;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #1e2430;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.18);
+}
+
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.8rem;
+  background: #2b3242;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.terminal-bar .dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+  flex: none;
+}
+
+.terminal-bar .dot.r { background: #ff5f57; }
+.terminal-bar .dot.y { background: #febc2e; }
+.terminal-bar .dot.g { background: #28c840; }
+
+.terminal-title {
+  margin-left: 0.5rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.8rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.instructions .terminal pre,
+.terminal pre {
+  margin: 0;
+  padding: 0.95rem 1.05rem;
+  background: transparent;
+  border-radius: 0;
+  overflow-x: auto;
+  color: #e6edf3;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.87rem;
+  line-height: 1.65;
+}
+
+.terminal code {
+  background: none;
+  color: inherit;
+  padding: 0;
+}
+
+.terminal .c  { color: #7d8797; }
+.terminal .o  { color: #adbac7; }
+.terminal .ok { color: #3fb950; font-weight: 600; }
+
+/* The prompt is shown but never copied, so the block stays paste-safe. */
+.terminal .p {
+  color: #58a6ff;
+  -webkit-user-select: none;
+  user-select: none;
+}
