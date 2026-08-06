@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="IC151 teaching assistant manual">
+    <title>IC151 TA manual</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      .states { list-style: none; padding: 0; margin: 0; }
+      .states li { padding: 12px 0; border-top: 1px solid var(--line); }
+      .states li:first-child { border-top: 0; }
+      .states code {
+        display: inline-block; font-weight: 700; font-size: .92rem;
+        padding: 2px 8px; border-radius: 6px; margin-bottom: 4px;
+        background: var(--blue-soft); color: var(--blue-dark);
+      }
+      .states code.warn { background: #fdf0e3; color: #8a4b06; }
+      .states code.bad  { background: #fdeceb; color: var(--danger); }
+      .states span { display: block; color: var(--muted); line-height: 1.55; }
+      .do-list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+      .do-list a.button-link { display: block; text-align: center; }
+    </style>
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">IC151 · For teaching assistants</p>
+        <h1 id="page-title">TA manual</h1>
+        <p class="intro">Everything you need to run a lab. You do not need a laptop, command line tools, or admin rights &mdash; all of it works from the GitHub app on your phone.</p>
+      </section>
+
+      <section class="card instructions" aria-labelledby="do-title">
+        <h2 id="do-title">The two things you do here</h2>
+        <p>Both are GitHub issues in the private <code>course-admin</code> repository. If these links show a 404, your GitHub account has not been added yet &mdash; ask the instructor.</p>
+        <ul class="do-list">
+          <li><a class="primary-button button-link" href="https://github.com/IC151Jul2026/course-admin/issues/new?template=release-assignment.yml" target="_blank" rel="noopener noreferrer">Release an assignment to a batch</a></li>
+          <li><a class="secondary-button button-link" href="https://github.com/IC151Jul2026/course-admin/issues/new?template=wrong-username.yml" target="_blank" rel="noopener noreferrer">Report a wrong GitHub username</a></li>
+        </ul>
+        <p class="field-help">Everything else &mdash; writing assignments, fixing usernames, changing who has access &mdash; is done by the instructor. You never need to touch repository permissions yourself.</p>
+      </section>
+
+      <section class="card instructions" aria-labelledby="release-title">
+        <h2 id="release-title">Releasing before your lab</h2>
+        <p>Each student gets their own private repository, created from the assignment template. They do not exist until someone releases the batch, so do this <strong>before</strong> your lab starts, not during it.</p>
+        <ul>
+          <li><strong class="step">1</strong> Open <em>Release an assignment to a batch</em>.</li>
+          <li><strong class="step">2</strong> Type the assignment id exactly as the instructor announced it, for example <code>helloworld</code>. Pick your batch. Submit.</li>
+          <li><strong class="step">3</strong> Wait about a minute. A bot replies with a <strong>dry run</strong> &mdash; a count of what it <em>would</em> do. Nothing has been created yet.</li>
+          <li><strong class="step">4</strong> If the numbers look right, reply with <code>/apply</code> as a comment.</li>
+          <li><strong class="step">5</strong> The bot creates the repositories, records what it did, and closes the issue.</li>
+        </ul>
+        <div class="notice">
+          <strong>Re-running a release is always safe.</strong>
+          <span>It never recreates, resets, or overwrites a repository that already exists, and it never touches student work. It only fills in what is missing. If you are unsure whether a batch was released, just release it again.</span>
+        </div>
+      </section>
+
+      <section class="card instructions" aria-labelledby="states-title">
+        <h2 id="states-title">Reading the bot's reply</h2>
+        <p>The reply is a count of students in each state. On a dry run you will see the first two; after <code>/apply</code> you see the rest.</p>
+        <ul class="states">
+          <li><code>would_create</code><span>A repository that does not exist yet and will be created when you reply <code>/apply</code>. On a first release this should be nearly everyone in the batch.</span></li>
+          <li><code>would_grant</code><span>The repository already exists; only the student's access will be added. Normal when you re-run a release.</span></li>
+          <li><code>push</code><span>Done. The student has accepted the organization invitation and can write to their repository right now.</span></li>
+          <li><code>invited</code><span>Done on our side. The repository exists and an invitation has been sent, but the student has not accepted it yet. Until they do, they will see a 404. This is expected and needs no action from you.</span></li>
+          <li><code class="warn">pending_username</code><span>The student has not given a valid GitHub username, so there is nobody to grant access to. Their repository is still created. Release the batch anyway, then file a username report for each one.</span></li>
+          <li><code class="bad">needs_review</code><span>A repository exists that our records do not know about. Stop and tell the instructor &mdash; do not re-run to try to fix it.</span></li>
+          <li><code class="bad">error</code><span>GitHub refused something. Re-running usually clears a temporary failure. If the same student errors twice, tell the instructor.</span></li>
+        </ul>
+        <p class="field-help">A large <code>invited</code> or <code>pending_username</code> count on a first release is normal and is not a failure.</p>
+      </section>
+
+      <section class="card instructions" aria-labelledby="trouble-title">
+        <h2 id="trouble-title">&ldquo;I get a 404 on my repository&rdquo;</h2>
+        <p>GitHub shows the same 404 whether a repository does not exist or the student simply cannot see it. So work down this list in order rather than guessing. Ask them for their <strong>roll number</strong> and the <strong>GitHub username they submitted</strong>.</p>
+        <ul>
+          <li><strong>Signed into the wrong account.</strong> Check the avatar in the top-right on github.com. Students with a personal account and an institute account very often land on the wrong one. Sign out, sign back in with the registered account.</li>
+          <li><strong>Invitation not accepted.</strong> Have them open <a href="https://github.com/notifications" target="_blank" rel="noopener noreferrer">github.com/notifications</a> or search their email for the GitHub invitation. This is the single most common cause.</li>
+          <li><strong>Batch not released yet.</strong> Confirm which lab batch they are actually in. Nothing to fix &mdash; the link 404s until the batch is released.</li>
+          <li><strong>Username does not exist on GitHub.</strong> Open <code>github.com/&lt;username&gt;</code>. If it is a 404, the username is wrong or the account was never created. File a username report.</li>
+          <li><strong>The profile is clearly somebody else.</strong> File a username report immediately and mark it as an access incident. A stranger may have write access to that student's repository.</li>
+        </ul>
+        <div class="notice">
+          <strong>The student fixes their own username.</strong>
+          <span>They re-submit the registration form with the correct username &mdash; same form, same email address, no need for a new one. The latest response replaces the earlier one. Then their access is corrected on the next update.</span>
+        </div>
+      </section>
+
+      <section class="card instructions" aria-labelledby="report-title">
+        <h2 id="report-title">Reporting a wrong username</h2>
+        <p>Only the instructor can change a username mapping, because doing so changes who can reach a private repository. Opening the report <em>is</em> the escalation &mdash; you do not need to message anyone separately.</p>
+        <ul>
+          <li>Give the <strong>roll number exactly</strong> as the student writes it, including any leading zeroes.</li>
+          <li>Only fill in a corrected username if the student told you what it is. Never guess one on their behalf, and never look one up and assume.</li>
+          <li>Use <em>&ldquo;belongs to someone else&rdquo;</em> when the profile is plainly not the student. That is treated as an access incident and handled first.</li>
+          <li>One report per student. If several students in your lab are affected, file them separately so each can be tracked.</li>
+        </ul>
+      </section>
+
+      <section class="card instructions" aria-labelledby="never-title">
+        <h2 id="never-title">What the tooling will never do</h2>
+        <ul>
+          <li>It will never delete, rename, archive, or make a repository public.</li>
+          <li>It will never reset or overwrite work a student has already pushed.</li>
+          <li>It will never silently redirect an existing username mapping to a different account.</li>
+          <li>It will never grant access to a username that does not resolve on GitHub.</li>
+        </ul>
+        <p class="field-help">This is why re-running a release is safe, and why a wrong username has to be corrected deliberately rather than automatically.</p>
+      </section>
+
+      <footer>
+        <span>Organization: <strong>IC151Jul2026</strong></span>
+        <span>This page is for teaching assistants. It stores no data and lists no student information.</span>
+      </footer>
+    </main>
+  </body>
+</html>
