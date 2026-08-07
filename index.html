@@ -34,10 +34,13 @@
       </section>
       <section id="confirmation" class="card confirmation" aria-labelledby="confirmation-title" hidden>
         <p class="eyebrow">Confirm before opening</p>
-        <h2 id="confirmation-title">Your private GitHub repository</h2>
+        <h2 id="confirmation-title">Your assignments on GitHub</h2>
         <p id="confirmation-copy"></p>
+        <p class="field-help">Your team page &mdash; every assignment you have:</p>
+        <p class="repository-link-wrap"><a id="team-link" href="#" target="_blank" rel="noopener noreferrer"></a></p>
+        <p class="field-help">Or go straight to this one assignment:</p>
         <p class="repository-link-wrap"><a id="repository-link" href="#" target="_blank" rel="noopener noreferrer"></a></p>
-        <div class="notice"><strong>Sign in with your registered GitHub account.</strong><span>If you have not accepted your repository invitation yet, GitHub may show a 404 until you do.</span></div>
+        <div class="notice"><strong>Sign in with the account you accepted your invitation with.</strong><span>If you have not accepted the invitation emailed to your institute address, GitHub shows a 404 on both links until you do.</span></div>
         <div class="button-row"><button id="back-button" type="button" class="secondary-button">Back</button><a id="continue-link" class="primary-button button-link" href="#" target="_blank" rel="noopener noreferrer">Continue to GitHub</a></div>
       </section>
       <section class="card instructions" aria-labelledby="instructions-title">
@@ -135,7 +138,7 @@
       </section>
       <footer><span>Organization: <strong>IC151Jul2026</strong></span><span>No roster data is stored by this page.</span></footer>
     </main>
-    <script>window.PORTAL_CONFIG = {organization: "IC151Jul2026", courseName: "IC151", assignments: [{"id":"helloworld","title":"Hello World"}], repositoryPattern: "{assignment}-{batch}-{roll}", batches: ["A1","A2","A3","A4","B1","B2","B3","B4"]};</script>
+    <script>window.PORTAL_CONFIG = {organization: "IC151Jul2026", courseName: "IC151", assignments: [{"id":"helloworld","title":"Hello World"}], repositoryPattern: "{assignment}-{batch}-{roll}", teamPattern: "student-{batch}-{roll}", batches: ["A1","A2","A3","A4","B1","B2","B3","B4"]};</script>
     <script src="app.js" defer></script>
   </body>
 </html>

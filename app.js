@@ -14,6 +14,11 @@
     ? config.repositoryPattern
     : "{assignment}-{roll}";
   const needsBatch = repositoryPattern.includes("{batch}");
+  // Comes from course.team_pattern. Access is granted through the student's team, so
+  // the team page is the one link that keeps working across every assignment.
+  const teamPattern = typeof config.teamPattern === "string" && config.teamPattern
+    ? config.teamPattern
+    : "student-{batch}-{roll}";
 
   const form = document.getElementById("repository-form");
   const assignmentSelect = document.getElementById("assignment");
@@ -24,6 +29,7 @@
   const confirmation = document.getElementById("confirmation");
   const confirmationCopy = document.getElementById("confirmation-copy");
   const repositoryLink = document.getElementById("repository-link");
+  const teamLink = document.getElementById("team-link");
   const continueLink = document.getElementById("continue-link");
   const backButton = document.getElementById("back-button");
 
@@ -46,6 +52,15 @@
       .replace(/\{batch\}/g, batch)
       .replace(/\{roll\}/g, roll);
     return `https://github.com/${organization}/${name}`;
+  }
+
+  function teamUrl(roll, batch) {
+    // GitHub lowercases team slugs, matching team_name() in the release tooling.
+    const slug = teamPattern
+      .replace(/\{batch\}/g, batch)
+      .replace(/\{roll\}/g, roll)
+      .toLowerCase();
+    return `https://github.com/orgs/${organization}/teams/${slug}/repositories`;
   }
 
   function addAssignments() {
@@ -78,11 +93,13 @@
     rollInput.focus();
   }
 
-  function showConfirmation(url, assignment, roll) {
-    confirmationCopy.textContent = `This link is for assignment ${assignment} and roll number ${roll}. Check the account you are signed in to before continuing.`;
+  function showConfirmation(url, team, assignment, roll) {
+    confirmationCopy.textContent = `Roll number ${roll}. Your team page lists every assignment you have been given, so it keeps working even before ${assignment} is released. Check the account you are signed in to before continuing.`;
+    teamLink.href = team;
+    teamLink.textContent = team;
     repositoryLink.href = url;
     repositoryLink.textContent = url;
-    continueLink.href = url;
+    continueLink.href = team;
     form.closest(".card").hidden = true;
     confirmation.hidden = false;
     confirmation.querySelector("#back-button").focus();
@@ -117,7 +134,7 @@
       return;
     }
 
-    showConfirmation(repositoryUrl(assignment, roll, batch), assignment, roll);
+    showConfirmation(repositoryUrl(assignment, roll, batch), teamUrl(roll, batch), assignment, roll);
   });
 
   backButton.addEventListener("click", showForm);
