@@ -63,9 +63,36 @@
           <li><strong class="step">1</strong> Open <em>Release an assignment to a batch</em>.</li>
           <li><strong class="step">2</strong> Type the assignment id exactly as the instructor announced it, for example <code>helloworld</code>. Pick your batch. Submit.</li>
           <li><strong class="step">3</strong> Wait about a minute. A bot replies with a <strong>dry run</strong> &mdash; what it <em>would</em> do. Nothing has been created yet.</li>
-          <li><strong class="step">4</strong> If the numbers look right, reply with <code>/apply</code> as a comment.</li>
+          <li><strong class="step">4</strong> If the numbers look right, <strong>add the <code>go</code> label</strong> to the issue. On a phone that is two taps &mdash; see below.</li>
           <li><strong class="step">5</strong> The bot creates the repositories, attaches each to its student team, and closes the issue.</li>
         </ul>
+        <p class="field-help">Replying <code>/apply</code> as a comment does exactly the same thing. The label exists because it is far easier to tap than to type on a phone.</p>
+
+        <h3>Adding the <code>go</code> label</h3>
+        <figure class="shot">
+          <svg viewBox="0 0 1146 605" role="img" aria-label="A release issue showing the bot's dry run reply, with the Labels gear in the sidebar highlighted">
+            <image href="assets/release-dry-run.jpg" x="0" y="0" width="1146" height="605"></image>
+            <rect fill="none" stroke="#e5484d" stroke-width="3" rx="5" x="1092" y="67" width="28" height="27"></rect>
+          </svg>
+          <figcaption><strong class="step">R1</strong> Read the dry run first &mdash; here, 67 repositories would be attached for batch A2. If that matches your batch, click the gear next to <strong>Labels</strong>.</figcaption>
+        </figure>
+        <figure class="shot">
+          <svg viewBox="790 60 350 470" role="img" aria-label="The label picker open, with the go label highlighted">
+            <image href="assets/release-label-picker.jpg" x="0" y="0" width="1146" height="605"></image>
+            <rect fill="none" stroke="#e5484d" stroke-width="3" rx="5" x="812" y="313" width="306" height="56"></rect>
+          </svg>
+          <figcaption><strong class="step">R2</strong> Tick <code>go</code>. That is the release &mdash; there is no separate confirm button. Leave <code>release</code> ticked; removing it stops the bot from listening.</figcaption>
+        </figure>
+        <figure class="shot">
+          <svg viewBox="0 140 1146 370" role="img" aria-label="The same issue after the go label was added, showing the bot's Applied reply">
+            <image href="assets/release-applied.jpg" x="0" y="0" width="1146" height="602"></image>
+            <rect fill="#ffffff" x="62" y="195" width="141" height="25"></rect>
+            <text x="66" y="213" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="13" font-weight="600" fill="#1f2328">a TA added</text>
+            <rect fill="none" stroke="#e5484d" stroke-width="3" rx="5" x="204" y="195" width="35" height="24"></rect>
+          </svg>
+          <figcaption><strong class="step">R3</strong> About a minute later the bot replies <strong>Applied</strong> with the real counts and closes the issue. Here 58 students can already push and 9 have not accepted their invitation yet.</figcaption>
+        </figure>
+        <p class="field-help">Removing the <code>go</code> label afterwards does nothing &mdash; the release has already happened. To release a different batch, open a new issue.</p>
         <div class="notice">
           <strong>Re-running a release is always safe.</strong>
           <span>It never recreates, resets, or overwrites a repository that already exists, and it never touches student work. It only fills in what is missing. If you are unsure whether a batch was released, just release it again.</span>
@@ -74,7 +101,7 @@
 
       <section class="card instructions" aria-labelledby="states-title">
         <h2 id="states-title">Reading the bot's reply</h2>
-        <p>The reply counts students in each state. A dry run shows the first two; <code>/apply</code> shows the rest.</p>
+        <p>The reply counts students in each state. A dry run shows the first two; the <code>go</code> label shows the rest.</p>
         <ul class="states">
           <li><code>would_create</code><span>The repository does not exist yet and will be created when you reply <code>/apply</code>. On a first release this is normally the whole batch.</span></li>
           <li><code>would_attach</code><span>The repository already exists; only the team attachment is missing. Normal when you re-run a release.</span></li>
