@@ -11,58 +11,35 @@
     <main class="page-shell">
       <section class="hero" aria-labelledby="page-title">
         <p class="eyebrow">IC151 · GitHub assignments</p>
-        <h1 id="page-title">Find your assignment repository</h1>
-        <p class="intro">Choose your assignment and enter your roll number. We will prepare the predictable GitHub link for you.</p>
+        <h1 id="page-title">Your lab, start to finish</h1>
+        <p class="intro">Get into GitHub, do the assignment, show your TA. Your repositories are waiting for you &mdash; there is nothing to look up here.</p>
       </section>
-      <section class="card" aria-labelledby="form-title">
-        <h2 id="form-title">Open a repository</h2>
-        <form id="repository-form" novalidate>
-          <label for="assignment">Assignment</label>
-          <select id="assignment" name="assignment" required>
-            <option value="">Select an assignment</option>
-          </select>
-          <p id="assignment-help" class="field-help">Choose the assignment named in your course announcement.</p>
-          <label for="batch">Lab batch</label>
-          <select id="batch" name="batch" required><option value="">Select your batch</option><option value="A1">A1</option><option value="A2">A2</option><option value="A3">A3</option><option value="A4">A4</option><option value="B1">B1</option><option value="B2">B2</option><option value="B3">B3</option><option value="B4">B4</option></select>
-          <p id="batch-help" class="field-help">The lab batch you attend. Ask your TA if you are unsure.</p>
-          <label for="roll">Roll number</label>
-          <input id="roll" name="roll" type="text" inputmode="text" autocomplete="off" spellcheck="false" placeholder="For example, 260000000" required aria-describedby="roll-help form-status">
-          <p id="roll-help" class="field-help">Enter the roll number exactly as issued. Surrounding spaces are ignored.</p>
-          <p id="form-status" class="status" role="status" aria-live="polite"></p>
-          <button type="submit" class="primary-button">Check repository link</button>
-        </form>
-      </section>
-      <section id="confirmation" class="card confirmation" aria-labelledby="confirmation-title" hidden>
-        <p class="eyebrow">Confirm before opening</p>
-        <h2 id="confirmation-title">Your assignments on GitHub</h2>
-        <p id="confirmation-copy"></p>
-        <p class="field-help">Your team page &mdash; every assignment you have:</p>
-        <p class="repository-link-wrap"><a id="team-link" href="#" target="_blank" rel="noopener noreferrer"></a></p>
-        <p class="field-help">Or go straight to this one assignment:</p>
-        <p class="repository-link-wrap"><a id="repository-link" href="#" target="_blank" rel="noopener noreferrer"></a></p>
-        <div class="notice"><strong>Sign in with the account you accepted your invitation with.</strong><span>If you have not accepted the invitation emailed to your institute address, GitHub shows a 404 on both links until you do.</span></div>
-        <div class="button-row"><button id="back-button" type="button" class="secondary-button">Back</button><a id="continue-link" class="primary-button button-link" href="#" target="_blank" rel="noopener noreferrer">Continue to GitHub</a></div>
+      <section class="card" aria-labelledby="repos-title">
+        <h2 id="repos-title">Where your assignments are</h2>
+        <p>Once you have joined GitHub and accepted the invitation, <strong>every assignment you have been given is already listed in your own repositories</strong>. Nothing to search for, no link to construct.</p>
+        <p class="repository-link-wrap"><a href="https://github.com/IC151Jul2026" target="_blank" rel="noopener noreferrer">github.com/IC151Jul2026</a></p>
+        <p class="field-help">They also appear on your GitHub home page as soon as you sign in. If you see nothing at all, you have not accepted the invitation yet &mdash; work through the checklist below.</p>
+        <div class="button-row"><a class="primary-button button-link" href="https://github.com/IC151Jul2026" target="_blank" rel="noopener noreferrer">Open my repositories</a></div>
       </section>
       <section class="card instructions" aria-labelledby="instructions-title">
         <h2 id="instructions-title">Start of the lab &mdash; work through this list</h2>
         <ol>
           <li><strong>Boot the machine into Ubuntu</strong>, not Windows. The compiler and <code>check.sh</code> are set up there.</li>
           <li><strong>Open a private browser window</strong> (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd> in Chrome, <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> in Firefox) and <strong>sign in to your Gmail in that window</strong>. Closing a private window signs you out, so the next student at this machine cannot reach your account.</li>
-          <li><strong>Search your Gmail for <code>GitHub</code></strong>, open the invitation email, and click <strong>Join IC151Jul2026</strong>. Until you do, every repository link below shows a 404.</li>
-          <li><strong>Sign in to GitHub</strong> in the same private window, with the account whose username you submitted on the registration form.</li>
-          <li>Come back here, enter your roll number, and open your repository.</li>
+          <li><strong>Create your GitHub account first</strong>, in that same private window: go to <a href="https://github.com/login" target="_blank" rel="noopener noreferrer">github.com</a> and choose <strong>Continue with Google</strong>, picking the institute address you just signed in with. Already have an account on that address? Just sign in with it.</li>
+          <li><strong>Only then, search your Gmail for <code>GitHub</code></strong>, open the invitation email, and click <strong>Join IC151Jul2026</strong>. Opening that link before your account exists is what sends people round in circles.</li>
+          <li>Your repositories are now listed under <a href="https://github.com/IC151Jul2026" target="_blank" rel="noopener noreferrer">github.com/IC151Jul2026</a>. Open the one for today's assignment.</li>
         </ol>
-        <p class="field-help">A GitHub 404 means your account does not have access yet, or the invitation is still pending. It also appears at <a href="https://github.com/notifications" target="_blank" rel="noopener noreferrer">github.com/notifications</a>. The portal only constructs a link; GitHub permissions protect the private repository.</p>
+        <p class="field-help">A GitHub 404 means your account does not have access yet, or the invitation is still pending. The invitation also appears at <a href="https://github.com/notifications" target="_blank" rel="noopener noreferrer">github.com/notifications</a> once you are signed in.</p>
       </section>
       <section class="card instructions" aria-labelledby="trouble-title">
-        <h2 id="trouble-title">Seeing a 404?</h2>
-        <p>GitHub shows the same 404 whether the repository is missing or you simply cannot see it, so work through these in order.</p>
+        <h2 id="trouble-title">Nothing there, or a 404?</h2>
+        <p>An empty list and a 404 mean the same thing on GitHub: this account cannot see the repository. Work through these in order.</p>
         <ul>
-          <li><strong>Wrong account.</strong> Check the avatar in the top-right corner on GitHub. If it is not the account you registered, sign out and sign back in with the right one.</li>
-          <li><strong>Invitation not accepted.</strong> Open <a href="https://github.com/notifications" target="_blank" rel="noopener noreferrer">github.com/notifications</a> or the invitation email, then accept.</li>
-          <li><strong>Wrong or misspelled username on the form.</strong> If the username you submitted has a typo, or you had not created the account yet, submit the registration form again with the correct username. Your latest response replaces the earlier one, and your access is fixed in the next update.</li>
-          <li><strong>Not released yet.</strong> Repositories are created batch by batch. If your lab batch has not been released, the link will 404 until it is.</li>
-          <li>Still stuck? Contact your lab TA with your roll number and your GitHub username.</li>
+          <li><strong>Invitation not accepted.</strong> The usual cause. Open the invitation email, or <a href="https://github.com/notifications" target="_blank" rel="noopener noreferrer">github.com/notifications</a> while signed in, and accept.</li>
+          <li><strong>Wrong account.</strong> Check the avatar in the top-right corner on GitHub. A personal account and your institute account look identical from the outside &mdash; the invitation went to your institute address, so that is the one that must be signed in.</li>
+          <li><strong>Not released yet.</strong> Repositories are prepared batch by batch. Until your lab batch is released, your list stays empty.</li>
+          <li>Still stuck? Contact your lab TA with your roll number.</li>
         </ul>
       </section>
       <section class="card instructions" aria-labelledby="howto-title">
@@ -150,7 +127,6 @@
       </section>
       <footer><span>Organization: <strong>IC151Jul2026</strong></span><span>No roster data is stored by this page.</span></footer>
     </main>
-    <script>window.PORTAL_CONFIG = {organization: "IC151Jul2026", courseName: "IC151", assignments: [{"id":"helloworld","title":"Hello World"},{"id":"variables","title":"Variables"}], repositoryPattern: "{assignment}-{batch}-{roll}", teamPattern: "student-{batch}-{roll}", batches: ["A1","A2","A3","A4","B1","B2","B3","B4"]};</script>
     <script src="app.js" defer></script>
   </body>
 </html>
