@@ -196,7 +196,8 @@ button:hover, .button-link:hover { transform: translateY(-1px); }
 
 .instructions h2 { color: var(--ink); margin-bottom: 12px; }
 
-.instructions ul {
+.instructions ul,
+.instructions ol {
   display: grid;
   gap: 10px;
   margin: 0;
@@ -237,7 +238,8 @@ footer {
 }
 
 .card.instructions > p,
-.card.instructions ul {
+.card.instructions ul,
+.card.instructions ol {
   color: var(--muted);
 }
 

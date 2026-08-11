@@ -44,13 +44,15 @@
         <div class="button-row"><button id="back-button" type="button" class="secondary-button">Back</button><a id="continue-link" class="primary-button button-link" href="#" target="_blank" rel="noopener noreferrer">Continue to GitHub</a></div>
       </section>
       <section class="card instructions" aria-labelledby="instructions-title">
-        <h2 id="instructions-title">Before you begin</h2>
-        <ul>
-          <li>Sign in to GitHub with the account whose username you submitted on the registration form.</li>
-          <li>Accept the invitation to your repository. GitHub emails it to you, and it also appears at <a href="https://github.com/notifications" target="_blank" rel="noopener noreferrer">github.com/notifications</a>.</li>
-          <li>A GitHub 404 means your account does not have access yet, or the invitation is still pending.</li>
-          <li>The portal only constructs a link. GitHub permissions protect the private repository.</li>
-        </ul>
+        <h2 id="instructions-title">Start of the lab &mdash; work through this list</h2>
+        <ol>
+          <li><strong>Boot the machine into Ubuntu</strong>, not Windows. The compiler and <code>check.sh</code> are set up there.</li>
+          <li><strong>Open a private browser window</strong> (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd> in Chrome, <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> in Firefox) and <strong>sign in to your Gmail in that window</strong>. Closing a private window signs you out, so the next student at this machine cannot reach your account.</li>
+          <li><strong>Search your Gmail for <code>GitHub</code></strong>, open the invitation email, and click <strong>Join IC151Jul2026</strong>. Until you do, every repository link below shows a 404.</li>
+          <li><strong>Sign in to GitHub</strong> in the same private window, with the account whose username you submitted on the registration form.</li>
+          <li>Come back here, enter your roll number, and open your repository.</li>
+        </ol>
+        <p class="field-help">A GitHub 404 means your account does not have access yet, or the invitation is still pending. It also appears at <a href="https://github.com/notifications" target="_blank" rel="noopener noreferrer">github.com/notifications</a>. The portal only constructs a link; GitHub permissions protect the private repository.</p>
       </section>
       <section class="card instructions" aria-labelledby="trouble-title">
         <h2 id="trouble-title">Seeing a 404?</h2>
@@ -65,27 +67,9 @@
       </section>
       <section class="card instructions" aria-labelledby="howto-title">
         <h2 id="howto-title">How to do the assignment</h2>
-        <p>Red boxes show where to click. There are two ways to submit &mdash; pick either one.</p>
+        <p>Red boxes show where to click. <strong>Use Method B in the lab</strong> &mdash; it is the one that produces the <code>check.sh</code> output your TA has to see. Method A is a shortcut for small fixes from any machine.</p>
 
-        <h3>Option A &mdash; edit straight on GitHub (no download)</h3>
-        <p>Simplest if you only need to change a few lines. Your edit is committed the moment you press the green button, so this submits your work by itself.</p>
-        <figure class="shot">
-          <svg viewBox="336 228 830 184" role="img" aria-label="The main.cpp file page with the pencil edit button highlighted">
-            <image href="assets/edit-pencil.jpg" x="0" y="0" width="1504" height="755"></image>
-            <rect fill="none" stroke="#e5484d" stroke-width="4" rx="6" x="1052" y="235" width="32" height="28"></rect>
-          </svg>
-          <figcaption><strong class="step">A1</strong> Open <code>main.cpp</code> and click the pencil.</figcaption>
-        </figure>
-        <figure class="shot">
-          <svg viewBox="336 108 1166 224" role="img" aria-label="The GitHub editor with the placeholder text and the Commit changes button highlighted">
-            <image href="assets/edit-editor.jpg" x="0" y="0" width="1504" height="755"></image>
-            <rect fill="none" stroke="#e5484d" stroke-width="4" rx="6" x="524" y="280" width="258" height="21"></rect>
-            <rect fill="none" stroke="#e5484d" stroke-width="4" rx="6" x="1337" y="117" width="152" height="31"></rect>
-          </svg>
-          <figcaption><strong class="step">A2</strong> Replace <code>REPLACE_WITH_YOUR_ROLL_NUMBER</code> with your roll number, then press <strong>Commit changes</strong>. Keep the branch as <code>main</code>.</figcaption>
-        </figure>
-
-        <h3>Option B &mdash; download, check on your machine, upload back</h3>
+        <h3>Method B &mdash; download, check on your machine, upload back <em>(do this one)</em></h3>
         <figure class="shot">
           <svg viewBox="640 180 424 384" role="img" aria-label="The Code button expanded with Download ZIP highlighted">
             <image href="assets/download-zip.jpg" x="0" y="0" width="1504" height="756"></image>
@@ -131,14 +115,42 @@
           <figcaption><strong class="step">B4</strong> Drag in your edited <code>main.cpp</code> (or use <strong>choose your files</strong>), leave <em>Commit directly to the <code>main</code> branch</em> selected, and press <strong>Commit changes</strong>.</figcaption>
         </figure>
 
+        <h3>Method A &mdash; edit straight on GitHub (no download)</h3>
+        <p>A shortcut for changing a few lines when you are not at a lab machine. Your edit is committed the moment you press the green button, so this submits your work by itself &mdash; but it never runs <code>check.sh</code>, so it cannot be what you show your TA.</p>
+        <figure class="shot">
+          <svg viewBox="336 228 830 184" role="img" aria-label="The main.cpp file page with the pencil edit button highlighted">
+            <image href="assets/edit-pencil.jpg" x="0" y="0" width="1504" height="755"></image>
+            <rect fill="none" stroke="#e5484d" stroke-width="4" rx="6" x="1052" y="235" width="32" height="28"></rect>
+          </svg>
+          <figcaption><strong class="step">A1</strong> Open <code>main.cpp</code> and click the pencil.</figcaption>
+        </figure>
+        <figure class="shot">
+          <svg viewBox="336 108 1166 224" role="img" aria-label="The GitHub editor with the placeholder text and the Commit changes button highlighted">
+            <image href="assets/edit-editor.jpg" x="0" y="0" width="1504" height="755"></image>
+            <rect fill="none" stroke="#e5484d" stroke-width="4" rx="6" x="524" y="280" width="258" height="21"></rect>
+            <rect fill="none" stroke="#e5484d" stroke-width="4" rx="6" x="1337" y="117" width="152" height="31"></rect>
+          </svg>
+          <figcaption><strong class="step">A2</strong> Replace <code>REPLACE_WITH_YOUR_ROLL_NUMBER</code> with your roll number, then press <strong>Commit changes</strong>. Keep the branch as <code>main</code>.</figcaption>
+        </figure>
+
         <div class="notice">
           <strong>Editing on your own machine does not submit anything.</strong>
           <span>Your submission is whatever is stored in your GitHub repository. After committing, open <code>main.cpp</code> on GitHub and confirm your own code is there. The last commit on <code>main</code> at the deadline is what gets graded.</span>
         </div>
       </section>
+      <section class="card instructions" aria-labelledby="leaving-title">
+        <h2 id="leaving-title">Before you leave the lab</h2>
+        <ol>
+          <li>Run <code>./check.sh</code> until it prints <code>PASS</code>.</li>
+          <li><strong>Show your TA the output of <code>./check.sh</code></strong> on your screen.</li>
+          <li><strong>Sign the attendance sheet.</strong></li>
+          <li>Then you may leave.</li>
+        </ol>
+        <p class="field-help">Your commit still has to be on GitHub &mdash; a <code>PASS</code> on your own machine is not a submission.</p>
+      </section>
       <footer><span>Organization: <strong>IC151Jul2026</strong></span><span>No roster data is stored by this page.</span></footer>
     </main>
-    <script>window.PORTAL_CONFIG = {organization: "IC151Jul2026", courseName: "IC151", assignments: [{"id":"helloworld","title":"Hello World"}], repositoryPattern: "{assignment}-{batch}-{roll}", teamPattern: "student-{batch}-{roll}", batches: ["A1","A2","A3","A4","B1","B2","B3","B4"]};</script>
+    <script>window.PORTAL_CONFIG = {organization: "IC151Jul2026", courseName: "IC151", assignments: [{"id":"helloworld","title":"Hello World"},{"id":"variables","title":"Variables"}], repositoryPattern: "{assignment}-{batch}-{roll}", teamPattern: "student-{batch}-{roll}", batches: ["A1","A2","A3","A4","B1","B2","B3","B4"]};</script>
     <script src="app.js" defer></script>
   </body>
 </html>
